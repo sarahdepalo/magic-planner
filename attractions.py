@@ -22,9 +22,13 @@ def findAttractions():
     for a in attractions:
         dictionary = {}
         activity_name = a.find_element_by_xpath('.//div[@class="cardLinkContainer"]//div[@class="itemInfo"]//h2[@class="cardName"]')
-        if activity_name != '':
+        
+        activity_type = a.find_element_by_xpath('.//div[@class="cardLinkContainer"]//div[@class="itemInfo"]//div[@class="descriptionLines"]/span[2]')
+            
+        if ((activity_name != '') and ("Water Rides" not in activity_type)):
 
-            dictionary['activity_name'] = activity_name.text.replace("'", "\\").replace('"', '')
+            dictionary['activity_name'] = activity_name.text.replace("'", "''").replace('"', '')
+            dictionary['activity_type'] = activity_type.text.replace("'", "''")
             
             location = a.find_element_by_xpath('.//div[@class="cardLinkContainer"]//div[@class="itemInfo"]//div[@class="descriptionLines"]//span[@aria-label="location"]')
             if 'Magic Kingdom Park' in location.text:
@@ -39,8 +43,9 @@ def findAttractions():
             activity_height = a.find_element_by_xpath('.//div[@class="cardLinkContainer"]//div[@class="itemInfo"]//div[@class="descriptionLines"]/span[1]')
             dictionary['activity_height'] = activity_height.text
             
-            activity_type = a.find_element_by_xpath('.//div[@class="cardLinkContainer"]//div[@class="itemInfo"]//div[@class="descriptionLines"]/span[2]')
-            dictionary['activity_type'] = activity_type.text
+
+            activity_learn_more_link = a.find_element_by_xpath(".//*[contains(@id, 'Attraction')]").get_attribute("href")
+            dictionary['activity_learn_more_link'] = activity_learn_more_link
             
             activity_image_url = a.find_element_by_xpath('.//div[@class="cardLinkContainer"]//picture[@class="thumbnail"]/source[2]').get_attribute("src")
             filename = re.sub(r'[^A-Za-z]', '', activity_name.text.replace("'", "\\").replace('"', '')) + ".jpeg"
@@ -73,9 +78,9 @@ def addAttractionstoDB(attractions_list):
         cur = conn.cursor()
         for item in range(len(attractions_list)):  
             cur.execute(f"""INSERT INTO activities 
-                    (activity_name, activity_type, activity_height, activity_image, park_id)
+                    (activity_name, activity_type, activity_height, activity_learn_more_link, activity_image, park_id)
                     VALUES
-                    ('{attractions_list[item]['activity_name']}', '{attractions_list[item]['activity_type']}', '{attractions_list[item]['activity_height']}', '{attractions_list[item]['activity_image']}', {attractions_list[item]['park_id']})
+                    ('{attractions_list[item]['activity_name']}', '{attractions_list[item]['activity_type']}', '{attractions_list[item]['activity_height']}','{attractions_list[item]['activity_learn_more_link']}', '{attractions_list[item]['activity_image']}', {attractions_list[item]['park_id']})
                     """)
             conn.commit()
             print("Successfully Inserted")
