@@ -11,6 +11,6 @@ CREATE TABLE activities (
     activity_height text,
     activity_hours text,
     activity_image text,
-    activity_learn_more_link text, 
+    activity_description text, 
     park_id integer REFERENCES parks(id)
 );
