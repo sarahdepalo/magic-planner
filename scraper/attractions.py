@@ -32,7 +32,8 @@ def findAttractions():
                 
         activity_type = attractions[i].find_element_by_xpath('.//div[@class="cardLinkContainer"]//div[@class="itemInfo"]//div[@class="descriptionLines"]/span[2]')
         print('ACTIVITY TYPE PASSED')
-                    
+        
+        # Note: the Palais du Cinema ride location does not have a description which is why it is being skipped for now. The water park is being skipped since it will not be included in this app. 
         if activity_name.text != '' and activity_name.text != 'Palais du Cinéma' and "Water Rides" not in activity_type.text:
             dictionary['activity_name'] = activity_name.text.replace("'", "''").replace('"', '')
             dictionary['activity_type'] = activity_type.text.replace("'", "''")
@@ -73,22 +74,24 @@ def findAttractions():
                         
             dictionary['activity_image'] = filename
             print('ACTIVITY IMAGE PASSED')
-            # To do: Select the first paragraph of details only!
+
             try:
                 attractions[i].click()
                 load_check_details = WebDriverWait(driver, 11111160).until(EC.presence_of_element_located((By.CLASS_NAME, "dynamic-html")))
-                # time.sleep(8)
                 story_card = driver.find_element_by_class_name('story-card')
                 description = story_card.find_element_by_class_name('dynamic-html')
-                dictionary['activity_description'] = description.text.replace("'", "''").replace('"', '')
+                
+                if description.text == '':
+                    dictionary['activity_description'] = 'No description'
+                else:
+                    dictionary['activity_description'] = description.text.replace("'", "''").replace('"', '')
                 print('ACTIVITY DESCRIPTION PASSED')
                 driver.execute_script("window.history.go(-1)")
-                # time.sleep(15)
+
             except:
                 pass
             i += 1
             attractions_list.append(dictionary)
-            print('CURRENT ATTRACTIONS LIST', attractions_list)
         else:
             i += 1
             continue
