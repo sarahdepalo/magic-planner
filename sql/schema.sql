@@ -14,3 +14,21 @@ CREATE TABLE activities (
     activity_description text, 
     park_id integer REFERENCES parks(id)
 );
+
+CREATE TABLE dining (
+    id serial PRIMARY KEY,
+    dining_name text NOT NULL,
+    dining_type text,
+    dining_price text,
+    dining_image text,
+    park_id integer REFERENCES parks(id)
+);
+
+CREATE TABLE lodging (
+    id serial PRIMARY KEY,
+    loding_name text NOT NULL,
+    loding_transportation text,
+    loding_availability text,
+    loding_image text,
+    park_id integer REFERENCES parks(id)
+);

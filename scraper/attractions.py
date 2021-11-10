@@ -20,7 +20,7 @@ def findAttractions():
 
     while i < 126:
         print('CURRENT NUMBER', i)
-        load_check = WebDriverWait(driver, 11111160).until(EC.presence_of_element_located((By.ID, "hasSchedules-disneyPicks-default")))
+        load_check = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.ID, "hasSchedules-disneyPicks-default")))
         
         scheduled_attractions = driver.find_element_by_id('hasSchedules-disneyPicks-default')
         attractions = scheduled_attractions.find_elements_by_class_name('finderCard')
@@ -28,10 +28,8 @@ def findAttractions():
         dictionary = {}
             
         activity_name = attractions[i].find_element_by_xpath('.//div[@class="cardLinkContainer"]//div[@class="itemInfo"]//h2[@class="cardName"]')
-        print('ACTIVITY NAME PASSED')
                 
         activity_type = attractions[i].find_element_by_xpath('.//div[@class="cardLinkContainer"]//div[@class="itemInfo"]//div[@class="descriptionLines"]/span[2]')
-        print('ACTIVITY TYPE PASSED')
         
         # Note: the Palais du Cinema ride location does not have a description which is why it is being skipped for now. The water park is being skipped since it will not be included in this app. 
         if activity_name.text != '' and activity_name.text != 'Palais du Cinéma' and "Water Rides" not in activity_type.text:
@@ -47,18 +45,12 @@ def findAttractions():
                 dictionary['park_id'] = 3
             else: 
                 dictionary['park_id'] = 4
-
-            print('ACTIVITY LOCATION PASSED')
                 
             activity_height = attractions[i].find_element_by_xpath('.//div[@class="cardLinkContainer"]//div[@class="itemInfo"]//div[@class="descriptionLines"]/span[1]')
             dictionary['activity_height'] = activity_height.text
-                
-            print('ACTIVITY HEIGHT PASSED')
                     
             info_container = attractions[i].find_element_by_class_name('metaInfo')
             dictionary['activity_hours'] = info_container.text
-            
-            print('ACTIVITY HOURS PASSED')
             
             activity_image_url = attractions[i].find_element_by_xpath('.//div[@class="cardLinkContainer"]//picture[@class="thumbnail"]/source[2]').get_attribute("src")
             filename = re.sub(r'[^A-Za-z]', '', activity_name.text.replace("'", "\\").replace('"', '')) + ".jpeg"
@@ -73,11 +65,10 @@ def findAttractions():
                 print('Image Couldn''t be retreived')
                         
             dictionary['activity_image'] = filename
-            print('ACTIVITY IMAGE PASSED')
 
             try:
                 attractions[i].click()
-                load_check_details = WebDriverWait(driver, 11111160).until(EC.presence_of_element_located((By.CLASS_NAME, "dynamic-html")))
+                load_check_details = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.CLASS_NAME, "dynamic-html")))
                 story_card = driver.find_element_by_class_name('story-card')
                 description = story_card.find_element_by_class_name('dynamic-html')
                 
@@ -85,7 +76,6 @@ def findAttractions():
                     dictionary['activity_description'] = 'No description'
                 else:
                     dictionary['activity_description'] = description.text.replace("'", "''").replace('"', '')
-                print('ACTIVITY DESCRIPTION PASSED')
                 driver.execute_script("window.history.go(-1)")
 
             except:
