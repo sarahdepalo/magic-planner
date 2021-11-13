@@ -26,9 +26,9 @@ CREATE TABLE dining (
 
 CREATE TABLE lodging (
     id serial PRIMARY KEY,
-    loding_name text NOT NULL,
-    loding_transportation text,
-    loding_availability text,
-    loding_image text,
+    lodging_name text NOT NULL,
+    lodging_transportation text,
+    lodging_availability_link text,
+    lodging_image text,
     park_id integer REFERENCES parks(id)
 );
