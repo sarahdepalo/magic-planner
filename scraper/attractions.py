@@ -18,6 +18,7 @@ def findAttractions():
     attractions_list = []
     i = 0
 
+    # While loop is being used since the scaper must visit a completely different webpage but still maintain spot within the list of attractions
     while i < 126:
         print('CURRENT NUMBER', i)
         load_check = WebDriverWait(driver, 30).until(EC.presence_of_element_located((By.ID, "hasSchedules-disneyPicks-default")))

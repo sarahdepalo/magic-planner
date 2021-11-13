@@ -40,10 +40,10 @@ def findLodging():
         
         lodging_location = cardInfo.find_element_by_class_name('experienceLocation').text
         
-        if 'Animal Kingodom' in lodging_location:
-            dictionary['park_id'] = 2
-        elif 'Magic Kingdom' in lodging_location:
+        if 'Magic Kingdom' in lodging_location:
             dictionary['park_id'] = 1
+        elif 'Animal Kingodom' in lodging_location:
+            dictionary['park_id'] = 2
         elif 'EPCOT' in lodging_location:
             dictionary['park_id'] = 4
         #No hotels were listed specifically for Hollywood studios so all other hotels will be given id of 3 and served as "Recommended Hotels Nearby" for now. 
