@@ -42,6 +42,7 @@ def findDining():
                 dictionary['park_id'] = 3
             else: 
                 dictionary['park_id'] = 4    
+                
             dictionary['dining_name'] = dining_name.text.replace("'", "''").replace('"', '')
             
             dining_type = restaurants[i].find_element_by_xpath('.//div[@class="cardLinkContainer"]//div[@class="itemInfo"]//div[@class="descriptionLines"]/span[1]')
