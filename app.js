@@ -29,5 +29,9 @@ server.listen(port, host, () => {
 });
 
 const rootController = require('./routes/index');
+const parksController = require('./routes/parks');
+const activitiesController = require('./routes/activities');
 
 app.use('/', rootController);
+app.use('/parks', parksController)
+app.use('/activities', activitiesController)

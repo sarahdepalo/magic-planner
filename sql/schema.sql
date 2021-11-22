@@ -32,3 +32,12 @@ CREATE TABLE lodging (
     lodging_image text,
     park_id integer REFERENCES parks(id)
 );
+
+CREATE TABLE plan ( 
+    id serial PRIMARY KEY,
+    -- need to figure out Auth0 to grab user id
+    park_id integer REFERENCES parks(id),
+    activity_id integer REFERENCES activities(id),
+    dining_id integer REFERENCES dining(id),
+    lodging_id integer REFERENCES lodging(id)
+);
