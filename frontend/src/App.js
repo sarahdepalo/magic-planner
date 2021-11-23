@@ -4,7 +4,6 @@ import Homepage from "./components/homepage/HomePage";
 import LoginButton from "./components/userAuth/LoginButton";
 import LogoutButton from "./components/userAuth/LogoutButton";
 import UserProfile from "./components/userProfile/UserProfile";
-import "./App.css";
 
 function App() {
   return (
