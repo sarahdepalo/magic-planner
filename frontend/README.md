@@ -1,1 +1,1 @@
-# Magic Planner Frontend
+# Magic Planner 
