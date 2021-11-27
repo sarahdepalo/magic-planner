@@ -1,5 +1,9 @@
+@import "./variables";
+
 html {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 *,
 *:before,
@@ -14,6 +18,29 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+// Buttons
+.btn {
+  border-radius: 25px;
+  padding: 10px 15px;
+  display: inline-block;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  color: white;
+  transition: all 0.3s ease 0s;
+  border: 0;
+  &:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+  }
+}
+
+.btn-primary {
+  background: $theme-primary;
+  &:hover {
+    background: $theme-secondary;
+  }
 }
 
 @media screen and (min-width: 320px) {

@@ -1,0 +1,77 @@
+.hero-container {
+  position: relative;
+  height: 80vh;
+}
+
+.hero-img {
+  width: 60%;
+  display: block;
+  margin-left: 15%;
+  margin-top: 40px;
+  position: relative;
+  border-radius: 25px;
+  box-shadow: 0px 1px 20px rgba(121, 121, 121, 0.671);
+  z-index: 2;
+}
+
+.circle {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  display: inline-block;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.pink {
+  background: rgb(126, 57, 225);
+  background: linear-gradient(
+    49deg,
+    rgba(126, 57, 225, 1) 17%,
+    rgba(137, 52, 201, 1) 31%,
+    rgba(181, 35, 108, 1) 84%
+  );
+  position: absolute;
+  top: 1%;
+  left: 1%;
+}
+
+.blue {
+  background: rgb(89, 57, 225);
+  background: linear-gradient(
+    49deg,
+    rgba(89, 57, 225, 1) 17%,
+    rgba(58, 52, 201, 1) 31%,
+    rgba(35, 132, 181, 1) 84%
+  );
+  position: absolute;
+  right: 12%;
+  top: 75%;
+}
+
+.text-container {
+  background: white;
+  border-radius: 25px;
+  position: absolute;
+  width: 400px;
+  padding: 40px;
+  top: 20%;
+  right: 2%;
+  box-shadow: 0px 5px 10px rgba(121, 121, 121, 0.671);
+  z-index: 3;
+  text-align: center;
+  p {
+    line-height: 1.6;
+    text-align: left;
+  }
+}
+
+.introduction {
+  margin-top: 15%;
+  background: #eef7ff;
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+}
