@@ -1,3 +1,5 @@
+@import "../../variables";
+
 nav {
   display: flex;
   flex-flow: row;
@@ -19,6 +21,7 @@ nav {
     align-items: flex-end;
     align-self: flex-end;
     padding: 0;
+    margin-bottom: 0;
     width: 100%;
   }
 }
@@ -31,4 +34,53 @@ nav {
 
 .login {
   margin-left: auto;
+}
+
+.menu {
+  color:$theme-primary;
+  position: absolute;
+  top: 3.2rem;
+  right: 1rem;
+  display: none;
+  border: none;
+
+}
+
+.navbar-links {
+  display: flex;
+  width: 100%;
+}
+@media screen and (max-width: 960px) {
+  .menu {
+    display: block;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+
+    ul {
+      align-items: flex-start;
+      align-self: flex-start;
+      flex-direction: column;
+    }
+    li {
+      margin-bottom: 6px;
+    }
+  }
+
+  .login {
+    margin-left: 0;
+  }
+
+  .active {
+    display: flex;
+    background: #f9f9f9;
+    margin-bottom: -4px;
+  }
 }
