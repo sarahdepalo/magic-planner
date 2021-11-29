@@ -29,21 +29,22 @@ const Homepage = () => {
         <Wave />
         <section className="introduction">
           <div className="container">
-              <div>
-                  <h3>Attractions</h3>
-              </div>
-              <div>
-                  <h3>Dining</h3>
-              </div>
-              <div>
-                  <h3>Lodging</h3>
-              </div>
+            <div>
+              <h3>Attractions</h3>
+            </div>
+            <div>
+              <h3>Dining</h3>
+            </div>
+            <div>
+              <h3>Lodging</h3>
+            </div>
           </div>
         </section>
-
-        <LoginButton />
-        <LogoutButton />
-        <UserProfile />
+        <section>
+          <LoginButton />
+          <LogoutButton />
+          <UserProfile />
+        </section>
       </main>
     </>
   );

@@ -1,12 +1,17 @@
+@import "../../variables";
+
 .hero-container {
   position: relative;
   height: 100%;
   width: 100%;
   margin-bottom: 80px;
+  h1 {
+      color: $main-title;
+  }
 }
 
 .hero-img {
-  width: 60%;
+  width: 55%;
   display: block;
   margin-left: 15%;
   margin-top: 70px;
@@ -47,18 +52,18 @@
     rgba(35, 132, 181, 1) 84%
   );
   position: absolute;
-  right: 14%;
-  top: 75%;
+  right: 18%;
+  top: 79%;
 }
 
 .text-container {
   background: white;
   border-radius: 25px;
   position: absolute;
-  width: 25vw;
+  width: 30vw;
   word-wrap: break-word;
   padding: 30px;
-  top: 13%;
+  top: 8%;
   right: 3%;
   box-shadow: -1px 5px 8px rgba(121, 121, 121, 0.671);
   z-index: 3;
@@ -72,7 +77,7 @@
 // Still need to add the rest of the images, overlays, and hover text
 .introduction {
   margin-top: -12px;
-  background: #8336d7;
+  background: $theme-secondary;
   .container {
     width: 80%;
     margin: 0 auto;
@@ -81,7 +86,17 @@
     justify-content: space-evenly;
     color: white;
     div:nth-child(1) {
-      background-image: url("./images/attraction.jpg");
+      background-image: url("./images/starwars.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    div:nth-child(2) {
+      background-image: url("./images/dining.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    div:nth-child(3) {
+      background-image: url("./images/lodging.jpeg");
       background-size: cover;
       background-repeat: no-repeat;
     }
@@ -103,9 +118,35 @@
   }
 }
 
-@media screen and (max-width: 1360) {
+// need ipad and mobile queries. Navbar. 
+
+@media screen and (max-width: 1270px) {
   .hero-container {
-    height: 10%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-img {
+      position: static;
+      margin: 0 auto;
+      margin-top: 50px;
+  }
+
+  .text-container {
+      position: static;
+      width: 55%;
+      margin: 0 auto;
+      margin-top: 25px;
+  }
+
+  .blue {
+      right: 8%;
+      top: 88%;
+  }
+
+  .pink {
+      top: 2%;
+      left: 4%;
   }
 }
 
