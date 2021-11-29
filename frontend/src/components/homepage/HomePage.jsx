@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import LoginButton from "../userAuth/LoginButton";
 import LogoutButton from "../userAuth/LogoutButton";
 import UserProfile from "../userProfile/UserProfile";
+import { ReactComponent as Wave } from "./wave.svg";
 import castle from "./images/castle.jpeg";
 import "./homepage.scss";
 
@@ -25,13 +26,24 @@ const Homepage = () => {
           </div>
           <span className="circle blue"></span>
         </header>
+        <Wave />
         <section className="introduction">
           <div className="container">
-            <LoginButton />
-            <LogoutButton />
-            <UserProfile />
+              <div>
+                  <h3>Attractions</h3>
+              </div>
+              <div>
+                  <h3>Dining</h3>
+              </div>
+              <div>
+                  <h3>Lodging</h3>
+              </div>
           </div>
         </section>
+
+        <LoginButton />
+        <LogoutButton />
+        <UserProfile />
       </main>
     </>
   );

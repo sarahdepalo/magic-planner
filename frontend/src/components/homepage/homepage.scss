@@ -1,16 +1,18 @@
 .hero-container {
   position: relative;
-  height: 80vh;
+  height: 100%;
+  width: 100%;
+  margin-bottom: 80px;
 }
 
 .hero-img {
   width: 60%;
   display: block;
   margin-left: 15%;
-  margin-top: 40px;
+  margin-top: 70px;
   position: relative;
   border-radius: 25px;
-  box-shadow: 0px 1px 20px rgba(121, 121, 121, 0.671);
+  box-shadow: -2px 5px 10px rgba(121, 121, 121, 0.671);
   z-index: 2;
 }
 
@@ -33,7 +35,7 @@
   );
   position: absolute;
   top: 1%;
-  left: 1%;
+  left: 4%;
 }
 
 .blue {
@@ -45,7 +47,7 @@
     rgba(35, 132, 181, 1) 84%
   );
   position: absolute;
-  right: 12%;
+  right: 14%;
   top: 75%;
 }
 
@@ -53,11 +55,12 @@
   background: white;
   border-radius: 25px;
   position: absolute;
-  width: 400px;
-  padding: 40px;
-  top: 20%;
-  right: 2%;
-  box-shadow: 0px 5px 10px rgba(121, 121, 121, 0.671);
+  width: 25vw;
+  word-wrap: break-word;
+  padding: 30px;
+  top: 13%;
+  right: 3%;
+  box-shadow: -1px 5px 8px rgba(121, 121, 121, 0.671);
   z-index: 3;
   text-align: center;
   p {
@@ -66,12 +69,45 @@
   }
 }
 
+// Still need to add the rest of the images, overlays, and hover text
 .introduction {
-  margin-top: 15%;
-  background: #eef7ff;
+  margin-top: -12px;
+  background: #8336d7;
   .container {
     width: 80%;
     margin: 0 auto;
     padding-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+    div:nth-child(1) {
+      background-image: url("./images/attraction.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    div {
+      background: white;
+      margin-bottom: 150px;
+      border-radius: 20px;
+      width: 30%;
+      height: 300px;
+      padding: 10px 10px 0px 10px;
+      display: flex;
+
+      h3 {
+        align-self: flex-end;
+        padding: 0;
+        margin: 8px;
+      }
+    }
   }
+}
+
+@media screen and (max-width: 1360) {
+  .hero-container {
+    height: 10%;
+  }
+}
+
+@media screen and (max-width: 960px) {
 }
