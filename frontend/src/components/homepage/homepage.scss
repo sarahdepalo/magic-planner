@@ -6,7 +6,7 @@
   width: 100%;
   margin-bottom: 90px;
   h1 {
-      color: $main-title;
+    color: $main-title;
   }
 }
 
@@ -77,6 +77,7 @@
 // Still need to add the rest of the images, overlays, and hover text
 .introduction {
   margin-top: -12px;
+  margin-bottom: -2px;
   background: $theme-secondary;
   .container {
     width: 80%;
@@ -105,9 +106,12 @@
       margin-bottom: 150px;
       border-radius: 20px;
       width: 30%;
-      height: 300px;
+      height: 400px;
       padding: 10px 10px 0px 10px;
       display: flex;
+      &:hover {
+        cursor: pointer;
+      }
 
       h3 {
         align-self: flex-end;
@@ -118,6 +122,55 @@
   }
 }
 
+.sign-up {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 105px;
+  margin-bottom: 20vh;
+  h2 {
+      color: $main-title;
+  }
+    .col-1 {
+        padding: 15px;
+        width: 50%;
+        img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: -2px 5px 10px rgba(121, 121, 121, 0.671);
+        }
+    }
+    .col-2 {
+        padding: 15px;
+        width: 50%;
+        margin: 0 auto;
+        position:relative;
+    }
+    .text-container {
+        width: 30vw;
+        position: relative;
+        margin-top: 0;
+        margin: 0 auto;
+        padding: 60px;
+        right: 0%;
+    }
+
+    .pink {
+        top: -10%;
+        right: 10%;
+    }
+    .blue {
+        right: 2%;
+        top: 60%;
+    }
+}
+
+.col-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+}
 
 @media screen and (max-width: 1270px) {
   .hero-container {
@@ -126,52 +179,95 @@
   }
 
   .hero-img {
-      position: static;
-      margin: 0 auto;
-      margin-top: 50px;
+    position: static;
+    margin: 0 auto;
+    margin-top: 50px;
   }
 
   .text-container {
-      position: static;
-      width: 55%;
-      margin: 0 auto;
-      margin-top: 25px;
+    position: static;
+    width: 55%;
+    margin: 0 auto;
+    margin-top: 25px;
   }
 
   .blue {
-      right: 8%;
-      top: 88%;
+    right: 8%;
+    top: 88%;
   }
 
   .pink {
-      top: 2%;
-      left: 4%;
+    top: 2%;
+    left: 4%;
+  }
+  .introduction {
+      .container {
+          div {
+              height: 300px;
+          }
+      }
+  }
+
+  .col-container {
+    flex-direction: column;
+    .col-1, .col-2 {
+        width: 100%;
+        padding: 0;
+    }
+    .col-2 {
+        margin-top: 60px;
+    }
+    .text-container {
+        width: 100%;
+        padding: 50px;
+    }
+    .pink {
+        left: -10%;
+    }
+    .blue {
+        top: 85%;
+        right: -1%;
+    }
+}
+}
+
+
+
+@media screen and (max-width: 960px) {
+  .hero-img {
+    width: 80%;
+  }
+
+  .text-container {
+    width: 80%;
+    hyphens: auto;
+  }
+
+  .circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .introduction {
+    .container {
+      flex-direction: column;
+
+      div {
+        width: 100%;
+      }
+    }
+  }
+  .col-container {
+      .text-container {
+          padding: 20px;
+      }
   }
 }
 
-@media screen and (max-width: 960px) {
-    .hero-img {
-        width: 80%;
-    }
-
-    .text-container {
-        width: 80%;
-    }
-
-    .circle {
-        width: 150px;
-        height: 150px;
-    }
-
-    .introduction {
-        .container {
-            flex-direction: column;
-
-            div {
-                width: 100%
-            }
-        }
-    }
+// iPad Pro:
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) {
 }
 
-// Ipad & iPad Pro: 
+// iPad:
+@media only screen and (min-device-width: 768px) and (max-device-width: 1124px) {
+}
