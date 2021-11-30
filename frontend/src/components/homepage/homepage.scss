@@ -74,7 +74,7 @@
   }
 }
 
-// Still need to add the rest of the images, overlays, and hover text
+
 .introduction {
   margin-top: -12px;
   margin-bottom: -2px;
@@ -101,7 +101,7 @@
       background-size: cover;
       background-repeat: no-repeat;
     }
-    div {
+    .hover-container {
       background: white;
       margin-bottom: 150px;
       border-radius: 20px;
@@ -117,51 +117,67 @@
         align-self: flex-end;
         padding: 0;
         margin: 8px;
+        font-family: $body;
       }
     }
   }
 }
 
+.hover-content {
+    display: none;
+}
+
+.hover-container:hover + .hover-content {
+    display:block;
+}
+.hover-container {
+    &:hover {
+        opacity: .5;
+    }
+}
+
+// Third Row "SIGN UP"
 .sign-up {
   width: 100%;
   margin: 0 auto;
   margin-top: 105px;
   margin-bottom: 20vh;
   h2 {
-      color: $main-title;
+    color: $main-title;
   }
-    .col-1 {
-        padding: 15px;
-        width: 50%;
-        img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: -2px 5px 10px rgba(121, 121, 121, 0.671);
-        }
+  .col-1 {
+    padding: 15px;
+    width: 50%;
+    img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: -2px 5px 10px rgba(121, 121, 121, 0.671);
     }
-    .col-2 {
-        padding: 15px;
-        width: 50%;
-        margin: 0 auto;
-        position:relative;
-    }
-    .text-container {
-        width: 30vw;
-        position: relative;
-        margin-top: 0;
-        margin: 0 auto;
-        padding: 60px;
-        right: 0%;
-    }
+  }
+  .col-2 {
+    padding: 15px;
+    width: 50%;
+    margin: 0 auto;
+    position: relative;
+  }
+  .text-container {
+    width: 30vw;
+    position: relative;
+    margin-top: 0;
+    margin: 0 auto;
+    padding: 60px;
+    right: 0%;
+    top: 0%;
+  }
 
-    .pink {
-        top: -10%;
-        right: 10%;
-    }
-    .blue {
-        right: 2%;
-        top: 60%;
-    }
+  .pink {
+    top: -10%;
+    right: 10%;
+  }
+  .blue {
+    right: 2%;
+    top: 80%;
+  }
 }
 
 .col-container {
@@ -172,6 +188,7 @@
   margin: 0 auto;
 }
 
+// MEDIA QUERIES
 @media screen and (max-width: 1270px) {
   .hero-container {
     display: flex;
@@ -201,37 +218,36 @@
     left: 4%;
   }
   .introduction {
-      .container {
-          div {
-              height: 300px;
-          }
+    .container {
+      div {
+        height: 300px;
       }
+    }
   }
 
   .col-container {
     flex-direction: column;
-    .col-1, .col-2 {
-        width: 100%;
-        padding: 0;
+    .col-1,
+    .col-2 {
+      width: 100%;
+      padding: 0;
     }
     .col-2 {
-        margin-top: 60px;
+      margin-top: 60px;
     }
     .text-container {
-        width: 100%;
-        padding: 50px;
+      width: 100%;
+      padding: 50px;
     }
     .pink {
-        left: -10%;
+      left: -10%;
     }
     .blue {
-        top: 85%;
-        right: -1%;
+      top: 85%;
+      right: -8%;
     }
+  }
 }
-}
-
-
 
 @media screen and (max-width: 960px) {
   .hero-img {
@@ -258,9 +274,9 @@
     }
   }
   .col-container {
-      .text-container {
-          padding: 20px;
-      }
+    .text-container {
+      padding: 20px;
+    }
   }
 }
 

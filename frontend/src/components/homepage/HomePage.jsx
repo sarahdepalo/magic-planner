@@ -31,13 +31,17 @@ const Homepage = () => {
         <Wave />
         <section className="introduction">
           <div className="container">
-            <div>
+            <div className="hover-container">
+                <div className="hover-content">
+                    <h3>Attractions</h3>
+                    <p>I AM IN A HOVERBOX</p>
+                </div>
               <h3>Attractions</h3>
             </div>
-            <div>
+            <div className="hover-container">
               <h3>Dining</h3>
             </div>
-            <div>
+            <div className="hover-container">
               <h3>Lodging</h3>
             </div>
           </div>
@@ -56,9 +60,7 @@ const Homepage = () => {
               <div className="text-container">
                 <h2>Make Memories That <br/>Last a Lifetime</h2>
                 <p>
-                  Magic Planner makes it easy to plan out all aspects of your
-                  Disney World vacation. From lodging down to individual
-                  attractions, we've got 'em all. Start planning now.
+                  Our goal is to take the stress out of your vacation planning so you can focus less on planning and more on making memories. Whether you're a seasoned park goer or a Disney newbie, Magic Planner is here to help.
                 </p>
                 <Link to="/" className="btn btn-primary">
                   Sign Up
