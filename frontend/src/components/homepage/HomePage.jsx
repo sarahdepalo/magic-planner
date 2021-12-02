@@ -1,7 +1,4 @@
 import { Link } from "react-router-dom";
-import LoginButton from "../userAuth/LoginButton";
-import LogoutButton from "../userAuth/LogoutButton";
-import UserProfile from "../userProfile/UserProfile";
 import { ReactComponent as Wave } from "./wave.svg";
 import { ReactComponent as ReversedWave } from "./reversedWave.svg";
 import castle from "./images/castle.jpeg";
@@ -32,16 +29,42 @@ const Homepage = () => {
         <section className="introduction">
           <div className="container">
             <div className="hover-container">
-                <div className="hover-content">
-                    <h3>Attractions</h3>
-                    <p>I AM IN A HOVERBOX</p>
+              <div className="hover-content">
+                <div>
+                  <h3>Attractions</h3>
+                  <p>
+                    With over 115 attractions to choose from, you're sure to
+                    plan a fun filled day packed with memories.
+                  </p>
                 </div>
+              </div>
               <h3>Attractions</h3>
             </div>
             <div className="hover-container">
+              <div className="hover-content">
+                <div>
+                  <h3>Dining</h3>
+                  <p>
+                    We organized all the restaurants in Disney World based on
+                    parks so you don't have to worry about where you'll eat each
+                    day.
+                  </p>
+                </div>
+              </div>
               <h3>Dining</h3>
             </div>
             <div className="hover-container">
+              <div className="hover-content">
+                <div>
+                  <h3>Lodging</h3>
+                  <p>
+                    Don't have your hotel picked out yet? No worries, we've
+                    gathered the hotels closest to each park and listed
+                    available transportation to minimize your travel stresses
+                    each morning.
+                  </p>
+                </div>
+              </div>
               <h3>Lodging</h3>
             </div>
           </div>
@@ -58,9 +81,15 @@ const Homepage = () => {
             <div className="col-2">
               <span className="circle pink"></span>
               <div className="text-container">
-                <h2>Make Memories That <br/>Last a Lifetime</h2>
+                <h2>
+                  Make Memories That <br />
+                  Last a Lifetime
+                </h2>
                 <p>
-                  Our goal is to take the stress out of your vacation planning so you can focus less on planning and more on making memories. Whether you're a seasoned park goer or a Disney newbie, Magic Planner is here to help.
+                  Our goal is to take the stress out of your vacation planning
+                  so you can focus less on planning and more on making memories.
+                  Whether you're a seasoned park goer or a Disney newbie, Magic
+                  Planner is here to help.
                 </p>
                 <Link to="/" className="btn btn-primary">
                   Sign Up
