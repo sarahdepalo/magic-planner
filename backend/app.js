@@ -8,7 +8,7 @@ const http = require("http");
 // const port = process.env.PORT || 3000;
 
 const host = "127.0.0.1";
-const port = 3000;
+const port = 5000;
 
 const cors = require("cors");
 const morgan = require("morgan");
