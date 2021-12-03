@@ -14,6 +14,10 @@ nav {
   li {
     list-style-type: none;
     padding: 0px 25px;
+    &:hover {
+      color: $theme-primary;
+      font-weight: bold;
+    }
   }
 
   ul {
@@ -24,6 +28,12 @@ nav {
     margin-bottom: 0;
     width: 100%;
   }
+  .btn {
+    &:hover {
+      transform: translateY(0px);
+    }
+  }
+
 }
 
 .logo {
