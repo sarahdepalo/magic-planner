@@ -38,12 +38,13 @@ CREATE TABLE users(
     nickname VARCHAR(255),
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    email_Verified BOOLEAN DEFAULT FALSE
+    email_Verified BOOLEAN DEFAULT FALSE,
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE plan ( 
     id serial PRIMARY KEY,
-    user_id UUID REFERENCES users(id)
+    user_id UUID REFERENCES users(id),
     park_id integer REFERENCES parks(id),
     activity_id integer REFERENCES activities(id),
     dining_id integer REFERENCES dining(id),
