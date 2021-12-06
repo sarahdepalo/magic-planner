@@ -20,11 +20,11 @@ const ParkSelector = () => {
     getParks();
   }, []);
 
-  const selectPark = async (event, parkId) => {
+  const selectPark = async (event, parkId, parkName) => {
     event.preventDefault();
-    console.log(user)
+
     const userId = user.sub.slice(6);
-    console.log(userId);
+
     const localUrl = "http://localhost:5000/parks/add";
     const response = await fetch(localUrl, {
       method: "POST",
@@ -36,9 +36,8 @@ const ParkSelector = () => {
         parkId: parkId,
       }),
     }).then((response) => response.json());
-    console.log(response);
 
-    // navigate(`/parks/${parkName}`)
+    navigate(`/attractions/${parkName}`)
   };
 
   return (
@@ -58,7 +57,7 @@ const ParkSelector = () => {
                 <p>{park.park_description}</p>
                 <button
                   className="btn btn-primary"
-                  onClick={(event) => selectPark(event, park.id)}
+                  onClick={(event) => selectPark(event, park.id, park.park_name)}
                 >
                   Select Park
                 </button>

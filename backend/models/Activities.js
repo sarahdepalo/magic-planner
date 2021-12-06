@@ -3,11 +3,12 @@ const db = require('./conn');
 
 
 class Activities {
-    static async getAllActivities(park_id) {
+    static async getAllActivities(parkName) {
         try {
             const response = await db.any(`
                SELECT * FROM activities
-               WHERE park_id = ${park_id}; 
+               INNER JOIN parks ON activities.park_id = parks.id
+               WHERE park_name = '${parkName}'; 
             `)
             return response;
         } catch(error) {
