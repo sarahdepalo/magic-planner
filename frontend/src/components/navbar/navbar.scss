@@ -13,11 +13,21 @@ nav {
 
   li {
     list-style-type: none;
+    text-decoration: none;
     padding: 0px 25px;
+ 
+  }
+
+  a {
+    text-decoration: none;
+    &:visited {
+      color: $body-text;
+    }
     &:hover {
       color: $theme-primary;
       font-weight: bold;
     }
+
   }
 
   ul {
