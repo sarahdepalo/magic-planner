@@ -10,4 +10,10 @@ router.get('/:parkName', async (req, res) => {
     res.json(activities).status(200);
 });
 
+router.post('/add', async (req, res) => {
+    const { userId, array } = req.body;
+    const activities = await activitiesModel.addActivities(userId, array);
+    res.json(activities).status(200);
+})
+
 module.exports = router;

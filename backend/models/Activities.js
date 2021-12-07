@@ -1,21 +1,44 @@
-'use strict';
-const db = require('./conn');
-
+"use strict";
+const db = require("./conn");
 
 class Activities {
-    static async getAllActivities(parkName) {
-        try {
-            const response = await db.any(`
+  static async getAllActivities(parkName) {
+    try {
+      const response = await db.any(`
                SELECT activities.id, activity_name, activity_type, activity_height, activity_hours, activity_image, activity_description FROM activities
                inner JOIN parks as parks ON parks.id = activities.park_id
                WHERE park_name = '${parkName}';
-            `)
-            return response;
-        } catch(error) {
-            console.error("ERROR: ", error)
-            return error;
-        }
-     }
+            `);
+      return response;
+    } catch (error) {
+      console.error("ERROR: ", error);
+      return error;
+    }
+  }
+
+  static async addActivities(userId, array) {
+    let value = "";
+    array.forEach((activity) => {
+      if (value === "") {
+        value += `('${userId}', ${activity})`;
+      } else {
+        value += `,('${userId}', ${activity})`;
+      }
+    });
+    try {
+      const response = await db.any(`
+                INSERT INTO plan
+                (user_id, activity_id)
+                VALUES
+                ${value}
+            `);
+
+      return response;
+    } catch (error) {
+      console.error("ERROR: ", error);
+      return error;
+    }
+  }
 }
 
 module.exports = Activities;
