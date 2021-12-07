@@ -9,8 +9,7 @@ const Card = ({ attraction, handleClick }) => {
 
   return (
     <>
-      <h3>Card Component</h3>
-      <div >
+      <div>
         <h3>{attraction.activity_name}</h3>
         <img
           src={`http://localhost:5000/images/activities/${attraction.activity_image}`}
@@ -29,7 +28,7 @@ const Card = ({ attraction, handleClick }) => {
           size="sm"
           className={!!isClicked ? "check" : "hidden"}
           />
-          {isClicked === false ? "Add to Itinerary" : "Added"}
+          {!isClicked ? "Add to Itinerary" : "Added"}
         </button>
       </div>
     </>
