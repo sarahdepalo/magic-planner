@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Card from "./Card";
 
 const Activities = () => {
 // Select multiple activities, on select change button to FA check. On click again, remove from activities array. When you click next -> redirect to dining for selected park or jump to itinerary -> go to created itinerary. 
@@ -31,22 +32,18 @@ const Activities = () => {
     }
     console.log(userChoices)
   } 
-  // will need to turn each attraction into it's own component so they can manage when the button is clicked and can change the class accordingly
+
   return (
     <>
     <main>
         <section>
         <h1>{parkName} Attractions</h1>
             {!!attractions ? attractions.map((attraction) => (
-                <div key={`${attraction.activity_name}`}>
-                    <h3>{attraction.activity_name}</h3>
-                    <img src={`http://localhost:5000/images/activities/${attraction.activity_image}`}/>
-                    <p>{attraction.activity_type}</p>
-                    <p>{attraction.activity_height}</p>
-                    <p>{attraction.activity_hours}</p>
-                    <p>{attraction.activity_description}</p>
-                    <button className="btn btn-primary" onClick={(event) => handleClick(event, attraction.id)}>Add to Itinerary</button>
-                </div>
+                <Card 
+                attraction={attraction}
+                handleClick={handleClick}
+                key={`${attraction.activity_name}`}
+                />
             )): (<p>Loading Attractions...</p>)}
         </section>
     </main>

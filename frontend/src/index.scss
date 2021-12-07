@@ -46,6 +46,18 @@ h1, h2, h3, h4, h5, h6 {
   &:hover {
     background: $theme-secondary;
   }
+  &.clicked {
+    background: $disabled;;
+  }
+}
+
+.check {
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.hidden {
+  display: none;
 }
 
 
