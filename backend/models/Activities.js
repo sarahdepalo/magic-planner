@@ -17,12 +17,12 @@ class Activities {
   }
 
   static async addActivities(userId, array) {
-    let value = "";
+    let values = "";
     array.forEach((activity) => {
-      if (value === "") {
-        value += `('${userId}', ${activity})`;
+      if (values === "") {
+        values += `('${userId}', ${activity})`;
       } else {
-        value += `,('${userId}', ${activity})`;
+        values += `,('${userId}', ${activity})`;
       }
     });
     try {
@@ -30,7 +30,7 @@ class Activities {
                 INSERT INTO plan
                 (user_id, activity_id)
                 VALUES
-                ${value}
+                ${values}
             `);
 
       return response;
