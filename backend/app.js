@@ -1,6 +1,6 @@
 "use strict";
 
-// require('dotenv').config();
+require('dotenv').config();
 
 const http = require("http");
 // heroku host and port:
