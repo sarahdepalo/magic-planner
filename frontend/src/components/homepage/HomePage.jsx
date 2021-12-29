@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import LoginButton from "../userAuth/LoginButton";
 import { ReactComponent as Wave } from "./wave.svg";
 import { ReactComponent as ReversedWave } from "./reversedWave.svg";
 import castle from "./images/castle.jpeg";
@@ -19,9 +19,7 @@ const Homepage = () => {
               World vacation. From lodging down to individual attractions, we've
               got 'em all. Start planning now!
             </p>
-            <Link to="/" className="btn btn-primary">
-              Get Started
-            </Link>
+            <LoginButton btnTxt="Get Started"/>
           </div>
           <span className="circle blue"></span>
         </header>
@@ -91,9 +89,7 @@ const Homepage = () => {
                   Whether you're a seasoned park goer or a Disney newbie, Magic
                   Planner is here to help.
                 </p>
-                <Link to="/" className="btn btn-primary">
-                  Sign Up
-                </Link>
+                <LoginButton btnTxt="Sign Up"/>
               </div>
               <span className="circle blue"></span>
             </div>

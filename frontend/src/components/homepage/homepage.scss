@@ -131,14 +131,14 @@
   width: 100%;
   height: 100%;
   opacity: .8;
-  transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -webkit-transition: opacity 1s ease-in-out;
+  transition: opacity 2s ease-in-out;
+  -moz-transition: opacity 2s ease-in-out;
+  -webkit-transition: opacity 2s ease-in-out;
   &:hover {
     opacity: 1;
-    transition: opacity 0.55s ease-in-out;
-    -moz-transition: opacity 0.55s ease-in-out;
-    -webkit-transition: opacity 0.55s ease-in-out;
+    transition: opacity 1s ease-in-out;
+    -moz-transition: opacity 1s ease-in-out;
+    -webkit-transition: opacity 1s ease-in-out;
   }
   div {
     margin: 0 auto;

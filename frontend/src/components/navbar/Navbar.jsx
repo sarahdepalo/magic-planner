@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import LoginButton from "../userAuth/LoginButton";
+import LogoutButton from "../userAuth/LogoutButton";
 import logo from "./images/magicPlannerLogo.png";
 import "./navbar.scss";
 
 const Navbar = () => {
   const [active, setIsActive] = useState(false);
+  const { isAuthenticated } = useAuth0();
+
   return (
     <>
       <nav>
@@ -27,7 +31,11 @@ const Navbar = () => {
             </li>
             <li>Itinerary</li>
             <li className="login">
-              <LoginButton />
+              {isAuthenticated ? (
+                <LogoutButton/>
+              ) : (
+                <LoginButton/>
+              )}
             </li>
           </ul>
         </div>
