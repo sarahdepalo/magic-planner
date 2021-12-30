@@ -4,11 +4,11 @@ require('dotenv').config();
 
 const http = require("http");
 // heroku host and port:
-const host = '0.0.0.0';
-const port = process.env.PORT || 3000;
+// const host = '0.0.0.0';
+// const port = process.env.PORT || 3000;
 
-// const host = "127.0.0.1";
-// const port = 5000;
+const host = "127.0.0.1";
+const port = 5000;
 
 const cors = require("cors");
 const morgan = require("morgan");

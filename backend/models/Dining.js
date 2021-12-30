@@ -3,11 +3,12 @@ const db = require('./conn');
 
 
 class Dining {
-    static async getAllDining(park_id) {
+    static async getAllDining(parkName) {
         try {
             const response = await db.any(`
-               SELECT * FROM dining
-               WHERE park_id = ${park_id}; 
+            SELECT dining.id, dining_name, dining_type, dining_price, dining_image FROM dining 
+            INNER JOIN parks ON parks.id = dining.park_id 
+            WHERE park_name = '${parkName}';
             `)
             return response;
         } catch(error) {
