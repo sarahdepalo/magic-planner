@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
+import LoginButton from "../userAuth/LoginButton";
 import "./parkSelector.scss";
 
 const ParkSelector = () => {
+  const { isAuthenticated } = useAuth0();
+
   const [parks, setParks] = useState(null);
 
   const { user } = useAuth0();
@@ -37,7 +40,7 @@ const ParkSelector = () => {
       }),
     }).then((response) => response.json());
 
-    navigate(`/attractions/${parkName}`)
+    navigate(`/attractions/${parkName}`);
   };
 
   return (
@@ -55,12 +58,23 @@ const ParkSelector = () => {
                 </div>
                 <h2>{park.park_name}</h2>
                 <p>{park.park_description}</p>
-                <button
-                  className="btn btn-primary"
-                  onClick={(event) => selectPark(event, park.id, park.park_name)}
-                >
-                  Select Park
-                </button>
+                {isAuthenticated ? (
+                  <button
+                    className="btn btn-primary"
+                    onClick={(event) =>
+                      selectPark(event, park.id, park.park_name)
+                    }
+                  >
+                    Select Park
+                  </button>
+                ) : (
+                  <div className="btn-container">
+                    <button className="btn disabled" disabled>
+                      Select Park
+                    </button>
+                    <LoginButton btnTxt={"Sign in to select a park"} />
+                  </div>
+                )}
               </div>
             ))}
           </section>
